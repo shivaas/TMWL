@@ -12,5 +12,7 @@
  */
 class PostDonationRel extends BasePostDonationRel
 {
-
+	public static function get_by_post_id($post_id){
+		
+	}
 }

@@ -122,17 +122,30 @@ class Post extends Controller {
 		$post = Posts::get_post_by_id($post_id);
 		
 		$post = array(
+				'post_id' => 1,
 				'post_status' => 'published',
 				'post_author' => 4,
 				'post_title' => 'Testing post title',
 				'post_content' => json_encode(array('created_for'=> 'Shalini', 'created_by' => 'Shivaas', 'excerpt' => 'Testing words'))
 		);
 		
+		// get post media and organize them
+		$media = array('images' => array(), 'videos' => array());
+		
+		// get post donations
+		$donations = PostDonationRel::get_by_post_id($post['post_id']);
+		
+		// calculate total donation amount
+		$total_donation = 50;
+		
 		if($post['post_status'] != 'published'){
 			show_404();
 		}
 		
+		$data['total_donation'] = $total_donation;
+		$data['post_id'] = $post['post_id'];
 		$data['post'] = $post;
+		$data['media'] = $media;
 		$data['content'] = 'post/view';
 		$this->load->view('template', $data);
 	}

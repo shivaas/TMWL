@@ -141,32 +141,41 @@ var validateContactForm = function(){
 </div>
 <div class="page_content" id="view_card">
 <br/>
+<?php 
+	print_r($post);
+	$post_content = json_decode($post['post_content'], true);
+?>
   <div id="post_section">
 		<div id="left-col" class="column">
 			<img src="<?php echo base_url();?>images/created-for.png" />
-			<p class="createdFor" id=""><?php echo $post['created_for'];?></p>
+			<p class="createdFor" id=""><?php echo $post_content['created_for'];?></p>
 			<p><img src="http://www.tomamawithlove.org/wp-content/uploads/2010/05/mama-1131-100x100.jpg"  height="100" /></p>
 			<img src="<?php echo base_url();?>images/created-by.png" />
-			<p class="createdBy" id=""><?php echo $post['created_by'];?></p>
+			<p class="createdBy" id=""><?php echo $post_content['created_by'];?></p>
 			<p><img src="http://www.tomamawithlove.org/wp-content/uploads/2010/05/creator-1131-100x100.jpg" height="100" /></p>
-			<p class="createdText">You raised me to be a part of things like this.</p>
+			<?php if($post_content['excerpt']):?>
+				<p class="createdText"><?php echo $post_content['excerpt']; ?></p>
+			<?php endif;?>
+			
 		</div>
 		
 		<div id="center-col" class="column">
 			<div id="tabs">
 				<ul id="tabsnav">
-					<?php if($count($media['images']) >0):?>
+					<?php if(count($media['images']) >0):?>
 						<li class="timages"><a href="#tab-images">Images</a></li>
 					<?php endif;?>
-					<?php if($count($media['videos']) >0):?>
+					<?php if(count($media['videos']) >0):?>
 						<li class="tvideos"><a href="#tab-images">Videos</a></li>
 					<?php endif;?>
-					<?php if($post['excerpt']):?>
+					<?php if($post_content['excerpt']):?>
 						<li class="twords"><a href="#tab-images">Words</a></li>
 					<?php endif;?>
-					<li><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.tomamawithlove.org%2Fheartspaces%2F1131&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=tahoma&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:20px; margin:7px 0 0 20px;"></iframe></li>
+					<li>
+						<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.tomamawithlove.org%2Fheartspaces%2F1131&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=tahoma&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:20px; margin:7px 0 0 20px;"></iframe>
+					</li>
 				</ul>
-				<?php if($count($media['images']) >0):?>	
+				<?php if(count($media['images']) >0):?>	
 					<div id="tab-images">
 						<ul id="heartspace-photos" class="heartspace-visuals jcarousel-skin-ie7">
 							<?php foreach($media['images'] as $photo) : ?>
@@ -177,7 +186,7 @@ var validateContactForm = function(){
 						</ul>
 					</div>
 				<?php endif;?>
-				<?php if($count($media['videos']) >0):?>	
+				<?php if(count($media['videos']) >0):?>	
 					<div id="tab-videos">
 						<ul id="heartspace-videos" class="heartspace-visuals">
 							<?php $findme   = '=';						$findma   = '&';										$pose = strpos($videos[0], $findme);								$posa = strpos($videos[0], $findma);							 if ($posa===false) { $posa = strlen($videos[0]); }						$rest = substr($videos[0], $pose+1, $posa);?>						
@@ -189,34 +198,34 @@ var validateContactForm = function(){
 						<div class="clear">&nbsp;</div>
 					</div>
 				<?php endif;?>
-				<?php if($post['excerpt']):?>
-					<div id="tab-words" style="overflow:auto"><?php //the_content(); <hr /> ?><?php the_excerpt(); ?></div>
+				<?php if($post_content['excerpt']):?>
+					<div id="tab-words" style="overflow:auto"><?php echo $post_content['excerpt']; ?></div>
 				<?php endif;?>
 			</div>
 		</div>
 		
 		<div id="right-col" class="column">
 
-			<p class="totalAmount">$<?= $total_amt; ?></p>
+			<p class="totalAmount">$<?php echo $total_donation; ?></p>
 
-			<img src="<?= template_folder('assets/has-been-donated.png'); ?>" />
+			<img src="<?php echo base_url() . 'images/has-been-donated.png'; ?>" />
 
 			<br /><br />
 
-			<a href="https://tomamawithlove.org/donate/checkout-add-funds.php?id=<?= $post->ID; ?>"><img src="<?= template_folder('assets/add-funds-button.png'); ?>" hover="<?= template_folder('assets/add-funds-button-hover.png'); ?>" class="hover" /></a>
+			<a href="https://tomamawithlove.org/donate/checkout-add-funds.php?id=<?php echo $post_id; ?>"><img src="<?php echo base_url() . 'images/add-funds-button.png'; ?>" hover="<?php echo base_url() . 'images/add-funds-button-hover.png'; ?>" class="hover" /></a>
 
-			<a href="#tag-the-wall"><img src="<?= template_folder('assets/tag-the-wall-button.png'); ?>" hover="<?= template_folder('assets/tag-the-wall-button-hover.png'); ?>" class="hover" /></a>
+			<a href="#tag-the-wall"><img src="<?php echo base_url() . 'images/tag-the-wall-button.png'; ?>" hover="<?php echo base_url() . 'images/tag-the-wall-button-hover.png'; ?>" class="hover" /></a>
 
-			<a href="/create-heartspace"><img src="<?= template_folder('assets/create-a-heartspace-button.png'); ?>" hover="<?= template_folder('assets/create-a-heartspace-button-hover.png'); ?>" class="hover" /></a>
+			<a href="/create-heartspace"><img src="<?php echo base_url() . 'images/create-a-heartspace-button.png'; ?>" hover="<?php echo base_url() . 'images/create-a-heartspace-button-hover.png'; ?>" class="hover" /></a>
 
 			<div id="share">
 				<table>
 				<tr>
-					<td><a href="http://twitter.com/home?status=best%20mother's%20day%20gift%20ever.%20any%20mom%20would%20love%20this:+<?= get_permalink($post->ID); ?>+%23ToMamaWithLove" target="_blank"><img src="<?= template_folder('assets/icon-twitter.png'); ?>" /></a>
+					<td><a href="http://twitter.com/home?status=best%20mother's%20day%20gift%20ever.%20any%20mom%20would%20love%20this:+<?php echo current_url(); ?>+%23ToMamaWithLove" target="_blank"><img src="<?php echo base_url() . 'images/icon-twitter.png'; ?>" /></a>
 					&nbsp;
-					<a href="http://www.facebook.com/sharer.php?u=<?echo $post_id; ?>&t=best%20mother's%20day%20gift%20ever.%20any%20mom%20would%20love%20this."><img src="<?= template_folder('assets/icon-facebook.png'); ?>" /></a>
+					<a href="http://www.facebook.com/sharer.php?u=<?echo $post_id; ?>&t=best%20mother's%20day%20gift%20ever.%20any%20mom%20would%20love%20this."><img src="<?php echo base_url() . 'images/icon-facebook.png'; ?>" /></a>
 					&nbsp;
-					<a href="mailto:ENTER_EMAIL_ADDRESS?subject=a%20mother's%20day%20site%20you've%20got%20to%20see&body=Just%20found%20this%20great%20Mother's%20Day%20site%20at%20<?= get_permalink($post->ID); ?>.%20Thought%20it might%20make%20a%20perfect%20Mother's%20Day%20gift%20for%20someone%20you%20know%20;)"><img src="<?= template_folder('assets/icon-mail.png'); ?>" /></a>
+					<a href="mailto:ENTER_EMAIL_ADDRESS?subject=a%20mother's%20day%20site%20you've%20got%20to%20see&body=Just%20found%20this%20great%20Mother's%20Day%20site%20at%20<?php echo current_url(); ?>.%20Thought%20it might%20make%20a%20perfect%20Mother's%20Day%20gift%20for%20someone%20you%20know%20;)"><img src="<?php echo base_url() . 'images/icon-mail.png'; ?>" /></a>
 					&nbsp;
 					<img src="http://www.tomamawithlove.org/wp-content/uploads/2010/05/badge-tiny.png" id="blog-embed" />
 				</tr>
