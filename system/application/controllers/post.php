@@ -111,20 +111,29 @@ class Post extends Controller {
 		$this->load->view('template', $data);
 	}
 	
-	function view($postcard_id = null){
-		if($postcard_id == null){
+	function view($post_id = null){
+		if($post_id == null){
 			// pick a random postcard to display
 			$haystack = Posts::get_post_ids();
-			$postcard_id = array_rand($haystack);
-			redirect('card/' . $postcard_id);
+			$post_id = array_rand($haystack);
+			redirect('card/' . $post_id);
 		}
 		
-		$postcard = Posts::get_post_by_id($postcard_id);
-		if($postcard['post_status'] != 'published'){
+		$post = Posts::get_post_by_id($post_id);
+		
+		$post = array(
+				'post_status' => 'published',
+				'post_author' => 4,
+				'post_title' => 'Testing post title',
+				'post_content' => json_encode(array('created_for'=> 'Shalini', 'created_by' => 'Shivaas', 'excerpt' => 'Testing words'))
+		);
+		
+		if($post['post_status'] != 'published'){
 			show_404();
 		}
-		$data['postcard'] = $postcard;
-		$data['content'] = 'postcard/view';
+		
+		$data['post'] = $post;
+		$data['content'] = 'post/view';
 		$this->load->view('template', $data);
 	}
 
@@ -170,7 +179,6 @@ class Post extends Controller {
 		redirect('postcard/give/'. $d->post_id);
 	}
 
-	
 	function give($postcard_id = null){
 		if($postcard_id == null)
 			redirect('/postcard/design');

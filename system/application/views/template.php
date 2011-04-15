@@ -10,14 +10,14 @@
 	<meta property="og:type" content="cause"/>
 	<meta property="og:app_id" content="164948536873380"/>
 	<meta property="og:url" content="<?php echo current_url();?>"/>
-    <meta property="og:site_name" content="Epic Thanks"/>
+    <meta property="og:site_name" content="ToMamaWithLove"/>
     <meta property="og:image" content="<?php echo site_url() . 'images/small_logo.jpg';?>"/>
     <?php if($this->router->class== "postcard"):?>
-    	<meta property="og:description" content="A global celebration of gratitude and giving that honors inspirational changemakers who create hope in our world. Have you added your thank you note to the global outpouring of gratitude, generosity & goodness at Epic Thanks? Here's mine."/>
+    	<meta property="og:description" content=""/>
     <?php endif;?>
-	<title>Epic Thanks - TweetsGiving 2010</title>
+	<title>ToMamaWithLove - 2011</title>
 	
-	<meta name="description" content="A global celebration of gratitude and giving that honors inspirational changemakers who created hope in our world" />
+	<meta name="description" content="" />
 	
 	<meta name="tweetmeme-title" content="#ToMamaWithLove Tweetmeme title here" />
 	<link rel="Epic Thanks icon" href="<?php echo site_url();?>images/favicon.ico" />
@@ -39,7 +39,7 @@
 			
 			$.Juitter.start({
 				searchType:"searchWord", // needed, you can use "searchWord", "fromUser", "toUser"
-				searchObject:"epicthanks",
+				searchObject:"tomamawithlove",
 				live:"live-15", // the number after "live-" indicates the time in seconds to wait before request the Twitter API for updates.
 				placeHolder:"twitterFeed", // Set a place holder DIV which will receive the list of tweets example <div id="juitterContainer"></div>
 				loadMSG: "Loading messages...",

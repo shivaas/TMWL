@@ -78,3 +78,17 @@ body { background: url(../images/bg.gif) }
   font-weight:bold;
   text-decoration:none;
 }
+
+
+#search-text{
+	margin-top:10px;
+	float:left;
+	clear:none;
+	margin-left:10px;
+}
+
+#search-button{
+	margin-top:5px;
+	margin-left:-10px;
+	float:left;
+}
