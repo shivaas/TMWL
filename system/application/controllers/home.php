@@ -131,7 +131,7 @@ class Home extends Controller {
 		//echo count($listMembers);
 		$data['listMembers'] = $listMembers;
 		
-		$data['parade'] = GratitudeParade::get_parade();
+//		$data['parade'] = GratitudeParade::get_parade();
 		$data['blogs'] = Blogroll::get_all_blogs(3);
 		$data['donation_amount'] = $total;
 		$data['donation_count'] = $donation_count;
