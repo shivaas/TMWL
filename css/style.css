@@ -1,6 +1,6 @@
-﻿body { background: url(i/bg.gif) }
-#heartspace { height: 469px; background: url(i/heartspace.gif) no-repeat; } 
-#siteheader { height: 128px; background: url(i/header.gif) no-repeat; }
+body { background: url(../images/bg.gif) }
+#heartspace { height: 469px; background: url(../images/heartspace.gif) no-repeat; } 
+#siteheader { height: 128px; background: url(../images/header.gif) no-repeat; }
 
 #tmwlmamas { margin-left: 45px; margin-top: 175px; }
 

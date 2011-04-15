@@ -109,10 +109,10 @@ var updateChars = function(targetDiv, max){
 
 <div id="sideheartspace" class="grid_3">
 <ul id="tmwlmamas">
-	<li><img src="i/m/mama_lucy.png"></li>
-	<li><img src="i/m/maggie_doyne.png"></li>
-	<li><img src="i/m/suraya_pakzad.png"></li>
-	<li><img src="i/m/renu_shah_bagaria.png"></li>
+	<li><img src="<?php echo base_url()?>images/m/mama_lucy.png"></li>
+	<li><img src="<?php echo base_url()?>images/m/maggie_doyne.png"></li>
+	<li><img src="<?php echo base_url()?>images/m/suraya_pakzad.png"></li>
+	<li><img src="<?php echo base_url()?>images/m/renu_shah_bagaria.png"></li>
 </ul>
 </div>
 <!--sideheartspace-->
@@ -126,10 +126,10 @@ var updateChars = function(targetDiv, max){
 	class="container_16">
 <div id="sidebar1" class="grid_4">
 <ul id="info">
-	<li class="moreinfo"><img src="i/more_info.png" alt="more info" /></li>
-	<li class="about_mamas"><img src="i/about_the_mamas.png"
+	<li class="moreinfo"><img src="<?php echo base_url();?>images/more_info.png" alt="more info" /></li>
+	<li class="about_mamas"><img src="<?php echo base_url();?>images/about_the_mamas.png"
 		alt="about the mamas" /></li>
-	<li class="epic_change"><img src="i/about_epic_change.png"
+	<li class="epic_change"><img src="<?php echo base_url();?>images/about_epic_change.png"
 		alt="about epic change" /></li>
 </ul>
 </div>
@@ -137,7 +137,7 @@ var updateChars = function(targetDiv, max){
 
 <div id="main" class="grid_8">
 <div class="instructions">
-<h2><img src="i/instructions.gif" alt="Instructions" /></h2>
+<h2><img src="<?php echo base_url();?>images/instructions.gif" alt="Instructions" /></h2>
 <div class="wrapper">
 <ul class="left">
 	<li>1. Create a heartspace for a mom you love by giving $20 or more in
@@ -151,7 +151,7 @@ var updateChars = function(targetDiv, max){
 <!--instructions-->
 
 <div class="twitter">
-<h2><img src="i/twitter.gif" alt="twitter" /></h2>
+<h2><img src="<?php echo base_url();?>images/twitter.gif" alt="twitter" /></h2>
 <div class="wrapper">
 <div class="twittershare"></div>
 <div class="tweets">
@@ -166,14 +166,14 @@ var updateChars = function(targetDiv, max){
 <!--twitter-->
 
 <div class="blog grid_4 alpha">
-<h2><img src="i/blog.gif" alt="blog" /></h2>
+<h2><img src="<?php echo base_url();?>images/blog.gif" alt="blog" /></h2>
 <ul>
 	<li>Blog here</li>
 </ul>
 </div>
 
 <div class="partners grid_4 omega">
-<h2><img src="i/partners.gif" alt="partners" /></h2>
+<h2><img src="<?php echo base_url();?>images/partners.gif" alt="partners" /></h2>
 <ul>
 	<li>Partners</li>
 </ul>
@@ -186,12 +186,12 @@ var updateChars = function(targetDiv, max){
 <div class="video"></div>
 
 <div class="facebook">
-<h2><img src="i/facebook.gif" alt="facebook" /></h2>
-<div class="fbplugin"><img src="i/fb.gif" /></div>
+<h2><img src="<?php echo base_url();?>images/facebook.gif" alt="facebook" /></h2>
+<div class="fbplugin"><img src="<?php echo base_url();?>fb.gif" /></div>
 </div>
 
 <div class="team">
-<h2><img src="i/team.gif" alt="team" /></h2>
+<h2><img src="<?php echo base_url();?>images/team.gif" alt="team" /></h2>
 <ul>
 	<li>Team here</li>
 </ul>

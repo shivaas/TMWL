@@ -23,7 +23,7 @@
 	<link rel="Epic Thanks icon" href="<?php echo site_url();?>images/favicon.ico" />
 	<?php if(isset($fb_title)): ?><meta property="og:title" content="<?php echo $fb_title ?>"/><?php endif; ?>
 	<link rel="stylesheet" href="<?php echo site_url();?>css/reset.css" media="screen" />
-	<link rel="stylesheet" href="<?php echo site_url();?>css/styles.css" media="screen" />
+	<link rel="stylesheet" href="<?php echo site_url();?>css/style.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/960.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/jquery.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/skin.css" media="screen" />
@@ -31,9 +31,6 @@
 	<script src="<?php echo site_url(); ?>js/jquery.js" type="text/javascript"></script>
 	<script src="<?php echo site_url(); ?>js/jquery-ui.js" type="text/javascript"></script>
 	<script src="<?php echo site_url(); ?>js/jquery.juitter.js" type="text/javascript"></script>
-	<script src="<?php echo site_url(); ?>js/jquery.jcarousel.min.js" type="text/javascript"></script>
-	<script src="<?php echo site_url(); ?>js/toolkit.js" type="text/javascript"></script>
-	
 	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 	
