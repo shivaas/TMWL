@@ -87,6 +87,8 @@ abstract class BaseBlogroll extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasOne('Users', array(
+             'local' => 'added_by',
+             'foreign' => 'user_id'));
     }
 }
