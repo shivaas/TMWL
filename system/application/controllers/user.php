@@ -14,7 +14,7 @@ Class User extends Controller{
 	 */
 	function twitter_login(){
 		$twitteroauth = new Twitteroauth();
-		$twitteroauth->createNewRequest('9jwAGUvESPMKYlgqaMKv3g', 'BcLl9IQo3mPuoixPySzEHBCUFv1GMgYnYKKawJwpc8');
+		$twitteroauth->createNewRequest('9jwAGUvESPMKYlgqaMKv3g', 'wOgrjxQkquuVrG4VCdH3L4uG62M6MP4N60U2GInP0');
 		
 		// Requesting authentication tokens, the parameter is the URL we will be redirected to
 		$request_token = $twitteroauth->getRequestToken(site_url() . 'user/twitter_callback');
@@ -49,7 +49,7 @@ Class User extends Controller{
 		    // We've got everything we need
 		    // TwitterOAuth instance, with two new parameters we got in twitter_login.php
 		    $twitteroauth = new Twitteroauth();
-			$twitteroauth->createNewRequest('juegijb82OHpDxviFtkq5w', 'BcLl9IQo3mPuoixPySzEHBCUFv1GMgYnYKKawJwpc8',$this->session->userdata('oauth_token'), $this->session->userdata('oauth_token_secret'));
+			$twitteroauth->createNewRequest('9jwAGUvESPMKYlgqaMKv3g', 'wOgrjxQkquuVrG4VCdH3L4uG62M6MP4N60U2GInP0',$this->session->userdata('oauth_token'), $this->session->userdata('oauth_token_secret'));
 			
 			// Let's request the access token
 			$access_token = $twitteroauth->getAccessToken($_GET['oauth_verifier']);
