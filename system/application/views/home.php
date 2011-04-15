@@ -1,9 +1,4 @@
 <script type="text/javascript">
-jQuery(document).ready(function() {
-  jQuery('#mycarousel2').jcarousel();
-});
-</script>
-<script type="text/javascript">
 $(function(){
    $('#dialog').dialog({
 	    closeOnEscape : true,
@@ -36,58 +31,12 @@ $(function(){
 	});
   
   $('#tw-share').click(function(e){
+  	e.preventDefault();
 	var msg = $('#share_msg').val();
 	href = "http://twitter.com/home?status="  + encodeURIComponent(msg);
 	window.open(href, 'Share your gratitude',"status=1,height=400,width=900");
   });
-	 
-  $('#fb-share').click(function(e){
-		e.preventDefault();
-		var msg = $('#share_msg').val();
-	    var href = "<?php echo site_url() . 'share/';?>";
-		href += "fb_share?msg="  + encodeURIComponent(msg);
-		window.open(href, 'Share your gratitude',"status=1,height=400,width=900");
-		return;
-  });
-
-  try{
-	  var the_timeout = 0;
-		$.ajax({
-		    dataType: "json", 
-		    url: '<?php echo site_url() . 'postcard/json'?>',
-		    success: function(data) {
-				var count = 0;
-			    var cards = new Array();
-			    var currentIndex = 0;
-			    $.each(data, function(index, card) {
-			        cards[count] = card.post_content;
-//					console.log(card.post_content);
-			        //$('#home_postcard_preview').append('<div id="' + count + '" style="display:none">' + card.post_content + '</div'); 
-			        count++;
-			    });
-
-				//the_timeout = setInterval('rotateCards()', 5000);
-			    
-			    rotateCards = function (){
-			    	$('#home_postcard_preview').hide();
-			        $('#home_postcard_preview').html(cards[currentIndex]);
-			        $('#home_postcard_preview').fadeIn('fast');
-			
-			        the_timeout = setTimeout("rotateCards();", 5000);
-			        if(currentIndex < count)
-			        	currentIndex = currentIndex + 1;
-			        else
-			        	currentIndex = 0;
-			    };
-
-			    rotateCards();
-		        
-		    }   
-		   });
-	}catch(err){
-//			alert(err);
-	}
-		
+	
 });
 
 var updateChars = function(targetDiv, max){
@@ -151,25 +100,33 @@ var updateChars = function(targetDiv, max){
 <!--instructions-->
 
 <div class="twitter">
-<h2><img src="<?php echo base_url();?>images/twitter.gif" alt="twitter" /></h2>
-<div class="wrapper">
-<div class="twittershare"></div>
-<div class="tweets">
-<dl>
-	<dt><img></dt>
-	<dd>I love my mama and her strength and optimism inspires me every day.
-	Show a mama you love her today: www.tomamawithlove.org #tomamawithlove</dd>
-</dl>
-</div>
-</div>
+	<h2><img src="<?php echo base_url();?>images/twitter.gif" alt="twitter" /></h2>
+	<div class="wrapper">
+		<div class="twittershare">
+			<div style="height:15px;width:100%;display:block;">
+		      <p class="limit" id="tw_limit" style="text-align:right;margin:0 29px 0 0;"><span id="char-count">140</span> characters</p>
+		    </div>
+			<textarea id="share_msg" name="share_msg">I love my mama and her strength and optimism inspires me every day. Show a mama you love her today: www.tomamawithlove.org #tomamawithlove</textarea>
+			<Br/><a href="#" id="tw-share">Post this to Twitter</a>
+		</div>
+		<div class="tweets">
+			<div id="twitterFeed"></div>
+		</div>
+	</div>
 </div>
 <!--twitter-->
 
 <div class="blog grid_4 alpha">
 <h2><img src="<?php echo base_url();?>images/blog.gif" alt="blog" /></h2>
-<ul>
-	<li>Blog here</li>
-</ul>
+	<ul>
+		<?php foreach($blogs as $blog): ?>
+			<li>
+				<a target="_blank" href="<?php echo $blog['url'];?>"><?php echo $blog['content_title'];?></a><br>
+				<span class="rssdesc"><?php echo shorten($blog['content'],20); ?></span>
+			</li>					
+		<?php endforeach;?>
+	</ul>
+	<p id="see_more_blog"><a href="<?php echo site_url() . 'home/blog_love';?>">See more...</a></p>
 </div>
 
 <div class="partners grid_4 omega">
@@ -192,9 +149,28 @@ var updateChars = function(targetDiv, max){
 
 <div class="team">
 <h2><img src="<?php echo base_url();?>images/team.gif" alt="team" /></h2>
-<ul>
-	<li>Team here</li>
-</ul>
+	<p style="margin-top:10px;font-size:16px;text-align:center;" id="volunteer">100% volunteer-powered</p>
+	<div id="volunteers">
+		<ul>
+			<li><p><a target="_blank" href="http://www.twitter.com/lulutikololo"><img src="<?php echo site_url();?>/images/lulu.jpg" /></a></p><span>Creative</span></li>
+			<li><p><a target="_blank" href="http://www.twitter.com/megharastogi"><img src="<?php echo site_url();?>/images/megha.jpg" /></a></p><span>Developer</span></li>
+			<li><p><a target="_blank" href="http://www.twitter.com/shivaas"><img src="<?php echo site_url();?>/images/shivaas.jpg" /></a></p><span>Code Ninja</span></li>
+			<li><p><a target="_blank" href="http://www.twitter.com/sanjspatel"><img src="<?php echo site_url();?>/images/sanjay.jpg" /></a></p><span>Cat Herder</span></li>
+			<li><p><a target="_blank" href="http://www.twitter.com/StaceyMonk"><img src="<?php echo site_url();?>/images/tweeter_avatar.jpg" /></a></p><span>Founder</span></li>
+			<li><p><a target="_blank" href="http://www.twitter.com/weareasilia"><img src="<?php echo site_url();?>/images/asilia.jpg" /></a></p><span>Designer</span></li>
+		</ul>	 
+	</div>	
+	<p style="font-size:16px;padding:0 0 0 25px;margin-top:5px">Social media mob</p>
+	<ul id="social_mob">
+		<li>
+		<?php $count = 1; foreach($listMembers as $member): 
+				if(!in_array(strtolower($member['screen_name']),array('sanjspatel','shivaas','lulukitololo','staceymonk','mamalucy'))):
+		?>
+			<a target="_blank" href="http://twitter.com/<?php echo htmlspecialchars($member['screen_name']); ?>"><img src="<?php echo $member['profile_image_url']; ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" width="45px" height="45px"/></a>
+			<?php if($count%3 == 0) echo '</li><li>'; ?>
+		<?php $count++; endif; endforeach; ?>
+		</li>
+	</ul>
 </div>
 
 </div>

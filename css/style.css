@@ -8,5 +8,73 @@ body { background: url(../images/bg.gif) }
 
 .instructions .wrapper, .twitter .wrapper { width: 438px; margin-top: -5px; margin-bottom: 30px; padding: 10px; border: 1px solid #ddcee5; }
 
-.facebook .fbplugin, .team ul, .blog ul, .partners ul { width: 198px; padding: 10px; margin-bottom: 30px; border: 1px solid #ddcee5; }
+.facebook .fbplugin, .team ul, .blog ul, .partners ul { width: 198px; padding: 10px; margin-bottom: 30px; }
+.facebook .fbplugin {border: 1px solid #ddcee5; }
+
 /* add hovers to mama thumbs */
+
+/* Twitter feed styles */
+
+.juitterAvatar{
+  float:left;
+  margin:0 10px 0 0px;
+}
+#twitterFeed img{
+  width:35px;
+  height:35px;
+}
+#twitterFeed a{
+  color:#f36b22;
+  font-weight:bold;
+}
+#twitterFeed hr{
+  background:url("../images/twitter_border.jpg") no-repeat scroll left top transparent;
+  border:medium none;
+  height:16px;
+  margin:0;
+}
+#twitterFeed #twittLI3 hr{
+  display:none;
+}
+
+/* We <3 our team box styles */
+
+#volunteers img{
+  width:45px;
+  height:45px;
+}
+#volunteers{
+  /*padding:4px 0 6px 20px*/;
+  /*background:url("../images/twitter_border.jpg") no-repeat scroll center bottom transparent*/;
+}
+#volunteers ul{
+  overflow:hidden;
+}
+#volunteers li{
+  float:left;
+  margin:0 0 5px 8px;
+}
+#volunteers span{
+  display:block;
+  font-size:10px;
+  margin:4px 0 0 0;
+}
+#social_mob{
+  width:192px;
+  height:160px;
+  /*border:1px solid #999999;*/
+  overflow-y:auto;
+  /*margin:7px 0 0 17px*/;
+}
+#social_mob li{
+  padding:0 0 0 5px;
+  margin:3px 0;
+}
+#social_mob li img{
+  margin: 0pt 0pt 5px 8px;
+}
+#social_mob a{
+  color:#f36b22;
+  font-weight:bold;
+  text-decoration:none;
+}
