@@ -101,165 +101,103 @@ var updateChars = function(targetDiv, max){
     $('#char-count').html(max - len);
 };
 </script>
-<div class="page_content">
-	<div id="first_block">
-
-		<div id="big_tweet">
- 			<div id="home_postcard_preview">
- 			</div>
-		</div>
-		<div id="share_greatful">
-		    <div style="height:15px;width:100%;display:block;">
-		      <p class="limit" id="tw_limit" style="text-align:right;margin:0 29px 0 0;"><span id="char-count">140</span> characters</p>
-		    </div>
-		     <form action="<?php echo site_url(); ?>postcard/design" method="post">
-			    <div class="form"> 
-			        <textarea id="share_msg" name="share_msg">[insert what your grateful heart holds here]. Share your grateful heart at www.epicthanks.org #epicthanks #tweetsgiving</textarea>
-			     </div>
-		        <div class='form'>     
-			          <div id="share_on">
-			            <span>
-			            <a href="#" id="tw-share">Post this to Twitter</a>
-			            </span>
-			            <span><a href="#" style="margin:4px 0 0 0;" id="fb-share">Post this to Facebook</a></span>
-			          </div>
-			          <div id="share">
-			            <input type="submit" name="share" value="share" id="share_button"/>
-			          </div>
-		        </div>
-		      </form>
-        </div>  	
-			<div id="give_greatful">
-			  <p class="form" style="font-size:10px;clear:both;">
-			  	Contributions will be invested in <a href="<?php echo site_url() .'statics/changemakers';?>">these remarkable changemakers</a>. Give $100+ to be included in our honorary global gratitude parade below.
-			  </p>	 
-				<form action="<?php echo site_url() . 'payment/new_payment';?>" method="post">
-					<div class='form'>
-						Amount: <select name="amount">
-							<option value="10.00">$10.00</option>
-							<option value="20.00">$20.00</option>
-							<option value="25.00" selected="selected">$25.00</option>
-							<option value="50.00">$50.00</option>
-							<option value="100.00">$100.00</option>
-							<option value="250.00">$250.00</option>
-							<option value="500.00">$500.00</option>
-							<option value="1,000">$1,000.00</option>
-							<option value="2,500.00">$2,500.00</option>
-							<option value="5000.00">$5,000.00</option>
-						</select>
-
-						Currency: <select name="currencyCodeType">
-							<option value="USD">USD</option>
-							<option value="GBP">
-								GBP
-							</option>
-							<option value="EUR">
-								EUR
-							</option>
-							<option value="JPY">
-								JPY
-							</option>
-							<option value="CAD">
-								CAD
-							</option>
-							<option value="AUD">
-								AUD
-							</option>
-						</select>
-					</div>
-					<div class='form'>			
-						Pay Using:&nbsp;&nbsp;
-						<input name="pay_option" type="radio" value="2" checked="checked" /> Credit Card
-						<input name="pay_option" type="radio" value="1" /> Paypal
-					</div>	
-					<div class="form">
-						<div class="paypal_img" style="font-size:12px">
-							<input type="checkbox" name="give_epic" value="yes" checked="checked"/> 
-							Add 10% to my gift to support the work of <a href="http://www.epicchange.org/" target="_blank" style="text-decoration:underline;color:#123242;">Epic Change.</a>
-						</div>
-						
-						<input type="submit" name="give" value="give" id="submit_give"/>
-					</div> 
-					<input type="hidden" name="postcard_id" value="<?php echo rand();?>" />
-					<input type="hidden" name="payment_type" value="homepage_donation" /> 
-					<input type="hidden" name="item_name" value="Epic Thanks Donation" />
-				</form>
-			</div>
-		</div>	
-		<div id="second_block">
-			<div id="greatful_soles">
-				<p id="investment"><?php echo $donation_count;?></p>
-				<p id="collection">$<?php echo number_format(ceil($donation_amount) + COLLECTIONS);?></p>
-				<p id="changemaker">3</p> 
-				<p id="meet_them"><a href="<?php echo site_url() . 'statics/changemakers'?>">meet them</a></p>
-			</div>	
-		</div>
-		<div id="global_parade">
-			<div id="global_g_parade">global gratitude parade</div>
-			<p id="what_this"><a href="#" id="what-block">(What is this?)</a></p>
-			<ul id="mycarousel2" class="jcarousel-skin-tango">
-		      	<?php foreach($parade as $p):?>
-		        <li>
-		        <?php 
-		        	if($p->url)
-		        		echo '<a href="'. $p->url . '" target="_blank"><img height="73px" width="73px" src="'. $p->image_url . '"/></a>';
-		        	else
-		        		echo '<img src="'. $p->image_url . '"/>';
-		        ?>
-		          <p style="font-size:11px;width:100%;text-align:center;"><?php echo $p->name;?></p>
-		        </li>
-		        <?php endforeach;?>
-		      </ul>
-		</div>		
-		<div id="love_block">
-			<div id="facebook_love" class="love_blocks">
-				<p class="fb_love">
-					<fb:activity site="www.epicthanks.org" font="lucida grande" border_color="#fff" recommendations="false" height="350" width="200" border_color="#fffff" header="false"></fb:activity>
-				</p>
-			</div>
-			<div id="twitter_love" class="love_blocks"> 
-				<div id="twitterFeed"></div>
-			</div>
-			<div id="blog_love" class="love_blocks">
-				<ul>
-					<?php foreach($blogs as $blog): ?>
-						<li>
-							<a target="_blank" href="<?php echo $blog['url'];?>"><?php echo $blog['content_title'];?></a><br>
-							<span class="rssdesc"><?php echo shorten($blog['content'],20); ?></span>
-						</li>					
-					<?php endforeach;?>
-				</ul>
-				<p id="see_more_blog"><a href="<?php echo site_url() . 'home/blog_love';?>">See more...</a></p>
-			</div>
-
-			<div id="we_love" class="love_blocks love_blocks_last">
-				<p style="font-size:16px;text-align:center;" id="volunteer">100% volunteer-powered</p>
-				<div id="volunteers">
-					<ul>
-						<li><p><a target="_blank" href="http://www.twitter.com/lulutikololo"><img src="<?php echo site_url();?>/images/lulu.jpg" /></a></p><span>Creative</span></li>
-						<li><p><a target="_blank" href="http://www.twitter.com/megharastogi"><img src="<?php echo site_url();?>/images/megha.jpg" /></a></p><span>Developer</span></li>
-						<li><p><a target="_blank" href="http://www.twitter.com/shivaas"><img src="<?php echo site_url();?>/images/shivaas.jpg" /></a></p><span>Code Ninja</span></li>
-						<li><p><a target="_blank" href="http://www.twitter.com/sanjspatel"><img src="<?php echo site_url();?>/images/sanjay.jpg" /></a></p><span>Cat Herder</span></li>
-						<li><p><a target="_blank" href="http://www.twitter.com/StaceyMonk"><img src="<?php echo site_url();?>/images/tweeter_avatar.jpg" /></a></p><span>Founder</span></li>
-						<li><p><a target="_blank" href="http://www.twitter.com/weareasilia"><img src="<?php echo site_url();?>/images/asilia.jpg" /></a></p><span>Designer</span></li>
-					</ul>	 
-				</div>	
-				<p style="font-size:16px;padding:0 0 0 25px;margin-top:5px">Social media mob</p>
-				<ul id="social_mob">
-					<li>
-					<?php $count = 1; foreach($listMembers as $member): 
-							if(!in_array(strtolower($member['screen_name']),array('sanjspatel','shivaas','lulukitololo','staceymonk','mamalucy'))):
-					?>
-						<a target="_blank" href="http://twitter.com/<?php echo htmlspecialchars($member['screen_name']); ?>"><img src="<?php echo $member['profile_image_url']; ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" width="45px" height="45px"/></a>
-						<?php if($count%3 == 0) echo '</li><li>'; ?>
-					<?php $count++; endif; endforeach; ?>
-					</li>
-				</ul>	 
-			</div>
-		</div>
-	</div>
-<div id="dialog" style="display:none">
-	<p>The grateful souls pictured here have generously contributed $100 or more in celebration of Epic Thanks.</p>
-	<br/>
-	<p>Feeling grateful? Just give $100 (or more) and you'll appear here too.</p>
+<div
+	id="heartspace" class="container_12">
+<div id="mainheartspace" class="grid_9"><br />
 </div>
+<!--mainheartspace-->
+
+<div id="sideheartspace" class="grid_3">
+<ul id="tmwlmamas">
+	<li><img src="i/m/mama_lucy.png"></li>
+	<li><img src="i/m/maggie_doyne.png"></li>
+	<li><img src="i/m/suraya_pakzad.png"></li>
+	<li><img src="i/m/renu_shah_bagaria.png"></li>
+</ul>
+</div>
+<!--sideheartspace-->
+
+<div id="heartspacesearch" class="mamasearch"></div>
+<!--heartspacesearch--> <br class="clear" />
+</div>
+<!--heartspace-->
+
+<div id="tmwl"
+	class="container_16">
+<div id="sidebar1" class="grid_4">
+<ul id="info">
+	<li class="moreinfo"><img src="i/more_info.png" alt="more info" /></li>
+	<li class="about_mamas"><img src="i/about_the_mamas.png"
+		alt="about the mamas" /></li>
+	<li class="epic_change"><img src="i/about_epic_change.png"
+		alt="about epic change" /></li>
+</ul>
+</div>
+<!--sidebar1-->
+
+<div id="main" class="grid_8">
+<div class="instructions">
+<h2><img src="i/instructions.gif" alt="Instructions" /></h2>
+<div class="wrapper">
+<ul class="left">
+	<li>1. Create a heartspace for a mom you love by giving $20 or more in
+	her honor. Click here to start 2. Show your love by personalizing your
+	heartspace with poems, photos, videos and artwork. 3. Send a link to
+	the heartspace you've created. 4. Your mother's day present just
+	changed the world.</li>
+</ul>
+</div>
+</div>
+<!--instructions-->
+
+<div class="twitter">
+<h2><img src="i/twitter.gif" alt="twitter" /></h2>
+<div class="wrapper">
+<div class="twittershare"></div>
+<div class="tweets">
+<dl>
+	<dt><img></dt>
+	<dd>I love my mama and her strength and optimism inspires me every day.
+	Show a mama you love her today: www.tomamawithlove.org #tomamawithlove</dd>
+</dl>
+</div>
+</div>
+</div>
+<!--twitter-->
+
+<div class="blog grid_4 alpha">
+<h2><img src="i/blog.gif" alt="blog" /></h2>
+<ul>
+	<li>Blog here</li>
+</ul>
+</div>
+
+<div class="partners grid_4 omega">
+<h2><img src="i/partners.gif" alt="partners" /></h2>
+<ul>
+	<li>Partners</li>
+</ul>
+</div>
+<br class="clear" />
+</div>
+<!--main-->
+
+<div id="sidebar2" class="grid_4">
+<div class="video"></div>
+
+<div class="facebook">
+<h2><img src="i/facebook.gif" alt="facebook" /></h2>
+<div class="fbplugin"><img src="i/fb.gif" /></div>
+</div>
+
+<div class="team">
+<h2><img src="i/team.gif" alt="team" /></h2>
+<ul>
+	<li>Team here</li>
+</ul>
+</div>
+
+</div>
+<!--sidebar2--> <br class="clear" />
+</div>
+<!--tmwlinfo-->

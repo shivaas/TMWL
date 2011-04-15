@@ -19,11 +19,12 @@
 	
 	<meta name="description" content="A global celebration of gratitude and giving that honors inspirational changemakers who created hope in our world" />
 	
-	<meta name="tweetmeme-title" content="#EpicThanks tweetmeme-title here" />
+	<meta name="tweetmeme-title" content="#ToMamaWithLove Tweetmeme title here" />
 	<link rel="Epic Thanks icon" href="<?php echo site_url();?>images/favicon.ico" />
 	<?php if(isset($fb_title)): ?><meta property="og:title" content="<?php echo $fb_title ?>"/><?php endif; ?>
 	<link rel="stylesheet" href="<?php echo site_url();?>css/reset.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/styles.css" media="screen" />
+	<link rel="stylesheet" href="<?php echo site_url();?>css/960.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/jquery.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/skin.css" media="screen" />
 	
@@ -66,13 +67,12 @@
 			
 </head>
 <body>
-	
-  <div id="wrapper">
+
 <?php 
-$this->load->view('header');
-$this->load->view($content);
-$this->load->view('footer'); 
+	$this->load->view('header');
+	$this->load->view($content);
+	$this->load->view('footer'); 
 ?>
-	</div>
+	
 </body>
 </html>
