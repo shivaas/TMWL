@@ -7,7 +7,6 @@ Class User extends Controller{
 		$this->load->view('login');
 	}
 	
-	
 	/**
 	 * 
 	 * Method to initiate twitter login for the website. This redirect the user to the twitter oauth page, and if app already has permission, sends it back to twitter_callback
@@ -15,7 +14,7 @@ Class User extends Controller{
 	 */
 	function twitter_login(){
 		$twitteroauth = new Twitteroauth();
-		$twitteroauth->createNewRequest('juegijb82OHpDxviFtkq5w', 'BcLl9IQo3mPuoixPySzEHBCUFv1GMgYnYKKawJwpc8');
+		$twitteroauth->createNewRequest('9jwAGUvESPMKYlgqaMKv3g', 'BcLl9IQo3mPuoixPySzEHBCUFv1GMgYnYKKawJwpc8');
 		
 		// Requesting authentication tokens, the parameter is the URL we will be redirected to
 		$request_token = $twitteroauth->getRequestToken(site_url() . 'user/twitter_callback');

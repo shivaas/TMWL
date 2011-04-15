@@ -141,22 +141,31 @@ var validateContactForm = function(){
 </div>
 <div class="page_content" id="view_card">
 <br/>
-  <div id="postcard_section">
-	<div id="postcard_preview">
-		<?php echo $postcard['post_content'];?>
-	</div>
-	<div class="sharing_options">
-	    <p style="margin:8px 0;font-size:18px;">Share this note</p>
-	   	<div id="share_card_on">
-			<div id="twitter_icon">
-    	      <a target="_blank" class="custom-tweet-button" href="http://twitter.com/share?url=<?php echo site_url() . 'card/' . $postcard['post_id'];?>&text=check%20out%20this%20heartfelt%20thank%20you%20postcard%20from%20the%20%23EpicThanks%20site.%20happy%20%23tweetsgiving%20indeed%20%3A)%20pls%20RT">Tweet</a>&nbsp;&nbsp;
+  <div id="post_section">
+		<div id="left-col" class="column">
+			<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/created-for.png" />
+			<p class="createdFor" id="">Elena</p>
+			<p><img src="http://www.tomamawithlove.org/wp-content/uploads/2010/05/mama-1131-100x100.jpg"  height="100" /></p>
+			<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/created-by.png" />
+			<p class="createdBy" id="">ksiddall</p>
+			<p><img src="http://www.tomamawithlove.org/wp-content/uploads/2010/05/creator-1131-100x100.jpg" height="100" /></p>
+			<p class="createdText">You raised me to be a part of things like this.</p>
+		</div>
+		
+		<div id="center-col" class="column">
+			<div id="tabs">
+				<ul id="tabsnav">
+					<li class="timages"><a href="#tab-images">Images</a></li>
+					<li><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.tomamawithlove.org%2Fheartspaces%2F1131&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=tahoma&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:20px; margin:7px 0 0 20px;"></iframe></li>
+				</ul>	
+				<div id="tab-images">
+					<ul id="heartspace-photos" class="heartspace-visuals jcarousel-skin-ie7">
+						<li><a href="http://www.flickr.com/photos/kirasiddall/4581672825/?edited=1" class="oembed"></a></li>
+					</ul>
+				</div>
 			</div>
-  	  		<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . 'card/' . $postcard['post_id'];?>"><img src="<?php echo site_url();?>images/facebook.jpg"></a>&nbsp;&nbsp;
-  	    	<a href="#email" id="share_email"><img src="<?php echo site_url();?>images/share_email.jpg"></a>
-    	  </div>	
-  	  	<div id="post_card_link">Postcard link:<br/> <?php echo site_url() . 'card/' . $postcard['post_id'];?></div>
-  	  	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like show_faces="true" width="300" font="lucida grande"></fb:like>
-	  </div>
+		</div>
+		
   </div>
 	  <div class="clear">&nbsp;</div>
 	  <div id="disqus_thread"></div>

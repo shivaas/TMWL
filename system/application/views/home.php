@@ -1,22 +1,20 @@
 <script type="text/javascript">
 $(function(){
-   $('#dialog').dialog({
-	    closeOnEscape : true,
+	$('#dialog').dialog({
+	    closeOnEscape : false,
 	    draggable : false,
+	    autoOpen: false,
 	    modal : true,
 	    resizable : false,
-	    width : 600,
-	    title : 'What is the Global Gratitude Parade?',
-	    position : ['center', 100],
+	    width : 500,
+	    title : 'Login & give thanks',
+	    position : ['center'],
 	    show : 'fade',
-	    autoOpen: false,
 	    hide : 'fade',
-	    buttons : {
-			'Close' : function(){
-				$(this).dialog('close');
-			}
-		}
-	});
+	    open: function(){
+					$('.ui-dialog-titlebar-close').remove();
+	    		}
+	  });
 
 	$('#what-block').click(function(e){
 		e.preventDefault();
@@ -50,24 +48,37 @@ var updateChars = function(targetDiv, max){
     $('#char-count').html(max - len);
 };
 </script>
-<div
-	id="heartspace" class="container_12">
-<div id="mainheartspace" class="grid_9"><br />
+<div id="dialog" style="display:none;">
+	<p>Log in via twitter or facebook to create a custom thank you note that shares your grateful heart with the world.</p>
+	<br/>
+	<div style="margin:auto">
+		<div style="margin:5px;float:left;clear:both;margin-left:70px">
+			<a href="<?php echo site_url() . 'user/twitter_login'; ?>"><img src="<?php echo site_url() . 'images/sign-in-with-twitter-l.png'; ?>" alt="twitter login" /></a>
+		</div>
+		<div style="margin:5px;float:left;clear:none;">
+			<a href="<?php echo site_url() . 'user/facebook_login'; ?>"><img src="<?php echo site_url() . 'images/fb_login-button.png'; ?>" alt="facebook login" /></a>
+		</div>
+		  <?php $this->session->set_userdata('return_url', 'postcard/design');?>
+	 </div>
 </div>
-<!--mainheartspace-->
-
-<div id="sideheartspace" class="grid_3">
-<ul id="tmwlmamas">
-	<li><img src="<?php echo base_url()?>images/m/mama_lucy.png"></li>
-	<li><img src="<?php echo base_url()?>images/m/maggie_doyne.png"></li>
-	<li><img src="<?php echo base_url()?>images/m/suraya_pakzad.png"></li>
-	<li><img src="<?php echo base_url()?>images/m/renu_shah_bagaria.png"></li>
-</ul>
-</div>
-<!--sideheartspace-->
-
-<div id="heartspacesearch" class="mamasearch"></div>
-<!--heartspacesearch--> <br class="clear" />
+<div id="heartspace" class="container_12">
+	<div id="mainheartspace" class="grid_9"><br />
+	</div>
+	<!--mainheartspace-->
+	
+	<div id="sideheartspace" class="grid_3">
+		<ul id="tmwlmamas">
+			<li><a href="#"><img src="<?php echo base_url()?>images/m/mama_lucy.png"></a></li>
+			<li><a href="#"><img src="<?php echo base_url()?>images/m/maggie_doyne.png"></a></li>
+			<li><a href="#"><img src="<?php echo base_url()?>images/m/suraya_pakzad.png"></a></li>
+			<li><a href="#"><img src="<?php echo base_url()?>images/m/renu_shah_bagaria.png"></a></li>
+		</ul>
+	</div>
+	<!--sideheartspace-->
+	
+	<div id="heartspacesearch" class="mamasearch"></div>
+	<!--heartspacesearch--> 
+	<br class="clear" />
 </div>
 <!--heartspace-->
 
@@ -75,67 +86,70 @@ var updateChars = function(targetDiv, max){
 	class="container_16">
 <div id="sidebar1" class="grid_4">
 <ul id="info">
-	<li class="moreinfo"><img src="<?php echo base_url();?>images/more_info.png" alt="more info" /></li>
-	<li class="about_mamas"><img src="<?php echo base_url();?>images/about_the_mamas.png"
-		alt="about the mamas" /></li>
-	<li class="epic_change"><img src="<?php echo base_url();?>images/about_epic_change.png"
-		alt="about epic change" /></li>
+	<li class="moreinfo">
+		<a href="#"><img src="<?php echo base_url();?>images/more_info.png" alt="more info" /></a>
+	</li>
+	<li class="about_mamas">
+		<a href="#"><img src="<?php echo base_url();?>images/about_the_mamas.png" alt="about the mamas" /></a>
+	</li>
+	<li class="epic_change">
+		<a href="#"><img src="<?php echo base_url();?>images/about_epic_change.png" alt="about epic change" /></a>
+	</li>
 </ul>
 </div>
 <!--sidebar1-->
 
 <div id="main" class="grid_8">
-<div class="instructions">
-<h2><img src="<?php echo base_url();?>images/instructions.gif" alt="Instructions" /></h2>
-<div class="wrapper">
-<ul class="left">
-	<li>1. Create a heartspace for a mom you love by giving $20 or more in
-	her honor. Click here to start 2. Show your love by personalizing your
-	heartspace with poems, photos, videos and artwork. 3. Send a link to
-	the heartspace you've created. 4. Your mother's day present just
-	changed the world.</li>
-</ul>
-</div>
-</div>
-<!--instructions-->
-
-<div class="twitter">
-	<h2><img src="<?php echo base_url();?>images/twitter.gif" alt="twitter" /></h2>
-	<div class="wrapper">
-		<div class="twittershare">
-			<div style="height:15px;width:100%;display:block;">
-		      <p class="limit" id="tw_limit" style="text-align:right;margin:0 29px 0 0;"><span id="char-count">140</span> characters</p>
-		    </div>
-			<textarea id="share_msg" name="share_msg">I love my mama and her strength and optimism inspires me every day. Show a mama you love her today: www.tomamawithlove.org #tomamawithlove</textarea>
-			<Br/><a href="#" id="tw-share">Post this to Twitter</a>
-		</div>
-		<div class="tweets">
-			<div id="twitterFeed"></div>
+	<div class="instructions">
+		<h2><img src="<?php echo base_url();?>images/instructions.gif" alt="Instructions" /></h2>
+		<div class="wrapper">
+		<ul class="left">
+			<li>1. Create a heartspace for a mom you love by giving $20 or more in her honor.Click here to start </li>
+			<li>2. Show your love by personalizing your heartspace with poems, photos, videos and artwork.</li> 
+			<li>3. Send a link to the heartspace you've created. </li> 
+			<li>4. Your mother's day present just changed the world.</li>
+		</ul>
 		</div>
 	</div>
-</div>
-<!--twitter-->
-
-<div class="blog grid_4 alpha">
-<h2><img src="<?php echo base_url();?>images/blog.gif" alt="blog" /></h2>
-	<ul>
-		<?php foreach($blogs as $blog): ?>
-			<li>
-				<a target="_blank" href="<?php echo $blog['url'];?>"><?php echo $blog['content_title'];?></a><br>
-				<span class="rssdesc"><?php echo shorten($blog['content'],20); ?></span>
-			</li>					
-		<?php endforeach;?>
-	</ul>
-	<p id="see_more_blog"><a href="<?php echo site_url() . 'home/blog_love';?>">See more...</a></p>
-</div>
-
-<div class="partners grid_4 omega">
-<h2><img src="<?php echo base_url();?>images/partners.gif" alt="partners" /></h2>
-<ul>
-	<li>Partners</li>
-</ul>
-</div>
-<br class="clear" />
+	<!--instructions-->
+	
+	<div class="twitter">
+		<h2><img src="<?php echo base_url();?>images/twitter.gif" alt="twitter" /></h2>
+		<div class="wrapper">
+			<div class="twittershare">
+				<div style="height:15px;width:100%;display:block;">
+			      <p class="limit" id="tw_limit" style="text-align:right;margin:0 29px 0 0;"><span id="char-count">140</span> characters</p>
+			    </div>
+				<textarea id="share_msg" name="share_msg">I love my mama and her strength and optimism inspires me every day. Show a mama you love her today: www.tomamawithlove.org #tomamawithlove</textarea>
+				<Br/><a href="#" id="tw-share">Post this to Twitter</a>
+			</div>
+			<div class="tweets">
+				<div id="twitterFeed"></div>
+			</div>
+		</div>
+	</div>
+	<!--twitter-->
+	
+	<div class="blog grid_4 alpha">
+		<h2><img src="<?php echo base_url();?>images/blog.gif" alt="blog" /></h2>
+		<ul>
+			<?php foreach($blogs as $blog): ?>
+				<li>
+					<a target="_blank" href="<?php echo $blog['url'];?>"><?php echo $blog['content_title'];?></a><br>
+					<span class="rssdesc"><?php echo shorten($blog['content'],20); ?></span>
+				</li>					
+			<?php endforeach;?>
+		</ul>
+		<p id="see_more_blog"><a href="<?php echo site_url() . 'home/blog_love';?>">See more...</a></p>
+	</div>
+	
+	<div class="partners grid_4 omega">
+		<h2><img src="<?php echo base_url();?>images/partners.gif" alt="partners" /></h2>
+		<ul>
+			<li>Partners</li>
+		</ul>
+	</div>
+	<br class="clear" />
 </div>
 <!--main-->
 
@@ -143,8 +157,10 @@ var updateChars = function(targetDiv, max){
 <div class="video"></div>
 
 <div class="facebook">
-<h2><img src="<?php echo base_url();?>images/facebook.gif" alt="facebook" /></h2>
-<div class="fbplugin"><img src="<?php echo base_url();?>fb.gif" /></div>
+	<h2><img src="<?php echo base_url();?>images/facebook.gif" alt="facebook" /></h2>
+	<p class="fb_love">
+		<fb:activity site="www.tomamawithlove.org" font="lucida grande" border_color="#fff" recommendations="false" height="375" width="200" border_color="#fffff" header="false"></fb:activity>
+	</p>
 </div>
 
 <div class="team">
