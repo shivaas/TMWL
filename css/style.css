@@ -225,3 +225,22 @@ padding:0 !important;
 
 }
 
+/* PAYMENT */
+
+#payment-container { width: 960px; margin: 0 auto; background: #fff url(green-background-tile.jpg); text-align: left;}
+
+#payment-instructions, #paypalForm { background: #fff; padding: 10px; width: 905px; margin: 0 auto; }
+
+  #payment-instructions, #paypalForm, #paypalForm table { font: normal 13px/1.4 helvetica, arial, verdana; color: #7a4399; }
+
+  #payment-instructions form table { font-size: 12px; }
+
+#payment-instructions p {
+	padding: 5px 0px;
+	}
+
+#paypalForm table { float: left; width: 400px; }
+
+#paypalForm div { float: right; width: 300px; margin-right: 100px; text-align:center; }
+
+#steps { text-align:center; width: 930px; margin: 0 auto; }

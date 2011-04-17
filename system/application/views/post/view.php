@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo site_url();?>css/jquery.jcarousel.css" media="screen" />
 <script type="text/javascript">
 $(function(){
 	var diagOpts = {
@@ -212,7 +213,7 @@ var validateContactForm = function(){
 
 			<br /><br />
 
-			<a href="https://tomamawithlove.org/donate/checkout-add-funds.php?id=<?php echo $post_id; ?>"><img src="<?php echo base_url() . 'images/add-funds-button.png'; ?>" hover="<?php echo base_url() . 'images/add-funds-button-hover.png'; ?>" class="hover" /></a>
+			<a href="<?php echo base_url() . 'donate/add_funds/' . $post_id; ?>"><img src="<?php echo base_url() . 'images/add-funds-button.png'; ?>" hover="<?php echo base_url() . 'images/add-funds-button-hover.png'; ?>" class="hover" /></a>
 
 			<a href="#tag-the-wall"><img src="<?php echo base_url() . 'images/tag-the-wall-button.png'; ?>" hover="<?php echo base_url() . 'images/tag-the-wall-button-hover.png'; ?>" class="hover" /></a>
 
@@ -292,7 +293,7 @@ var validateContactForm = function(){
 			<br>
 			<br>
 			<a
-				href="https://tomamawithlove.org/donate/checkout-add-funds.php?id=1086"><img
+				href="<?php echo base_url() . 'donate/add_funds/' . $post_id; ?>"><img
 				src="<?php echo base_url(); ?>images/add-funds-button.png"
 				hover="<?php echo base_url(); ?>images/add-funds-button-hover.png"
 				class="hover" align="center"></a>
