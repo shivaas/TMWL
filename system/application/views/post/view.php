@@ -50,7 +50,7 @@ $(function(){
 				var to_email = $('form#email_form input[name=to_email]').val();
 				var from_email = $('form#email_form input[name=from_email]').val();
 				var content = $('textarea#message').val();
-				var link = '<?php echo site_url() . 'card/' . $postcard['post_id']; ?>';
+				var link = '<?php echo site_url() . 'card/' . $post['post_id']; ?>';
 				
 				$('#form_status').html('Processing request... <img src="<?php echo site_url(); ?>images/ui-anim_basic_16x16.gif" alt="...working!"/>');
 				$('#dialog').dialog('open');
@@ -139,12 +139,12 @@ var validateContactForm = function(){
 		</fieldset>
 	</form>
 </div>
-<div class="page_content" id="view_card">
-<br/>
-<?php 
-	print_r($post);
-	$post_content = json_decode($post['post_content'], true);
-?>
+<div class="page_content heartspace" id="heartspace-wrapper">
+	<br/>
+	<?php 
+//		print_r($post);
+		$post_content = json_decode($post['post_content'], true);
+	?>
   <div id="post_section">
 		<div id="left-col" class="column">
 			<img src="<?php echo base_url();?>images/created-for.png" />
@@ -172,7 +172,7 @@ var validateContactForm = function(){
 						<li class="twords"><a href="#tab-images">Words</a></li>
 					<?php endif;?>
 					<li>
-						<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.tomamawithlove.org%2Fheartspaces%2F1131&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=tahoma&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:20px; margin:7px 0 0 20px;"></iframe>
+						<iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo base_url() . 'heartspaces/' . $post['post_id'] ;?>&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=tahoma&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:20px; margin:7px 0 0 20px;"></iframe>
 					</li>
 				</ul>
 				<?php if(count($media['images']) >0):?>	
@@ -199,7 +199,7 @@ var validateContactForm = function(){
 					</div>
 				<?php endif;?>
 				<?php if($post_content['excerpt']):?>
-					<div id="tab-words" style="overflow:auto"><?php echo $post_content['excerpt']; ?></div>
+					<div id="tab-words"><?php echo $post_content['excerpt']; ?></div>
 				<?php endif;?>
 			</div>
 		</div>
@@ -243,22 +243,59 @@ var validateContactForm = function(){
 				</div>
 				<div class="clear"></div>
 		</div>
-		
+		<div class="clear">&nbsp;</div>
   </div>
-	  <div class="clear">&nbsp;</div>
-	  <div id="disqus_thread"></div>
-		<script type="text/javascript">
-		var disqus_developer = 1;
-		var disqus_shortname = 'tomamawithlove';
-		var disqus_url = '<?php echo base_url() . 'post/view/' . $post_id;?>';
-		  var disqus_identifier = <?php echo $post_id;?>; //[Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
-		  (function() {
-		   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		   dsq.src = 'http://epicthanks.disqus.com/embed.js';
-		   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		  })();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=epicthanks">comments powered by Disqus.</a></noscript>
-		<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-			  
+  <div class="clear">&nbsp;</div>
+	<div id="post_meta">
+		<div id="left-col" class="column">
+			<li class="widget_item">
+			<div class="textwidget"><a href="<?php echo base_url();?>more-info"> <img class="hover"
+				hover="<?php echo base_url();?>images/more-info-button-hover.png"
+				src="<?php echo base_url();?>images/more-info-button.png"> </a>
+			<br>
+			<br>
+			<a href="<?php echo base_url();?>about-epic-change"> <img class="hover"
+				hover="<?php echo base_url();?>images/About-epic-change-button-hover.jpg"
+				src="<?php echo base_url();?>images/About-epic-change-button.jpg">
+			</a> <br>
+			<br>
+			<a href="/"> <img class="hover"
+				hover="<?php echo base_url();?>images/more-heartspaces-hover.jpg"
+				src="<?php echo base_url();?>images/more-heartspaces.jpg"> </a></div>
+			</li>
+		</div>
+		<div id="center-col" class="column">
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			var disqus_developer = 1;
+			var disqus_shortname = 'tomamawithlove';
+			var disqus_url = '<?php echo base_url() . 'post/view/' . $post_id;?>';
+			  var disqus_identifier = <?php echo $post_id;?>; //[Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+			  (function() {
+			   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			   dsq.src = 'http://epicthanks.disqus.com/embed.js';
+			   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			  })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=epicthanks">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+				
+		</div>
+		<div id="right-col" class="column">
+			<img src="<?php echo base_url(); ?>images/in-her-honor-title-bar.jpg" />
+			<?php foreach($donations as $d):?>
+			<p class="donationName">Sanjay Patel<span class="donationAmount">$25</span></p>
+			<img src="<?php echo base_url(); ?>images/dotted-line-in-her-honour.jpg">
+			<br>
+			<br>
+			<a
+				href="https://tomamawithlove.org/donate/checkout-add-funds.php?id=1086"><img
+				src="<?php echo base_url(); ?>images/add-funds-button.png"
+				hover="<?php echo base_url(); ?>images/add-funds-button-hover.png"
+				class="hover" align="center"></a>
+			
+		</div>
+		<div class="clear">&nbsp;</div>
+	</div> 
+	<div class="clear">&nbsp;</div> 
 </div>

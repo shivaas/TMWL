@@ -92,3 +92,136 @@ body { background: url(../images/bg.gif) }
 	margin-left:-10px;
 	float:left;
 }
+
+/* jCarousel Styles */
+
+.ui-tabs .ui-tabs-panel {
+padding:0 !important;
+}
+/*
+.jcarousel-skin-ie7 .jcarousel-container {
+    -moz-border-radius: 10px;
+    background: #D4D0C8;
+    border: 1px solid #808080;
+}
+*/
+.jcarousel-skin-ie7 .jcarousel-container-horizontal {
+    width: 460px;
+    padding: 0 30px;
+}
+
+.jcarousel-skin-ie7 .jcarousel-clip-horizontal {
+    width:  460px;
+    height: 355px;
+}
+
+.jcarousel-skin-ie7 .jcarousel-item {
+    width: 455px;
+    height: 355px;
+    border: 1px solid #fff;
+}
+
+.jcarousel-skin-ie7 .jcarousel-item:hover {
+    border-color: #808080;
+}
+
+.jcarousel-skin-ie7 .jcarousel-item-horizontal {
+    margin-right: 7px;
+}
+
+.jcarousel-skin-ie7 .jcarousel-item-placeholder {
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin-ie7 .jcarousel-next-horizontal {
+    position: absolute;
+    top: 175px;
+    right: 0px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(arrow-RHS.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-ie7 .jcarousel-next-horizontal:hover,
+.jcarousel-skin-ie7 .jcarousel-next-horizontal:active,
+.jcarousel-skin-ie7 .jcarousel-next-disabled-horizontal,
+.jcarousel-skin-ie7 .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin-ie7 .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background: transparent url(arrow-RHS-hover.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-ie7 .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 175px;
+    left: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(arrow-LHS.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-ie7 .jcarousel-prev-horizontal:hover,
+.jcarousel-skin-ie7 .jcarousel-prev-horizontal:active,
+.jcarousel-skin-ie7 .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin-ie7 .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin-ie7 .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background: transparent url(arrow-LHS-hover.png) no-repeat 0 0;
+}
+
+/* POST (Heartspace) page styles */
+
+
+#tab-words, #tab-videos, #tab-images{
+	height: 380px;
+}
+
+#tab-words{
+	padding: 5px 10px;
+	overflow: auto;
+}
+
+#tab-videos{
+	padding: 5px 5px;
+	overflow: none;
+}
+
+#tab-images{
+	padding: 5px 5px;
+	overflow: none;
+}
+
+.donationName, .donationAmount {
+
+  font: bold 16px helvetica, arial, sans-serif;
+
+}
+
+.createdBy, .createdFor, .totalAmount {
+
+    margin-top: 0px;
+
+    color: #fff;
+
+    font: normal 1.3em Georgia, palatino, serif;
+
+    text-shadow: 0 0 0.2em #f0f7b5, 0 0 0.2em #f0f7b5, 0 0 0.2em #f0f7b5;
+
+}
+
+.createdText {
+
+  font: bold 12px helvetica, arial, sans-serif;
+
+
+
+    color:white;
+
+    text-shadow: 0 0 0.2em #f0f7b5;
+
+}
+

@@ -20,17 +20,23 @@
 	<meta name="description" content="" />
 	
 	<meta name="tweetmeme-title" content="#ToMamaWithLove Tweetmeme title here" />
-	<link rel="Epic Thanks icon" href="<?php echo site_url();?>images/favicon.ico" />
+	<link rel="ToMamaWithLove icon" href="<?php echo site_url();?>images/favicon.png" />
 	<?php if(isset($fb_title)): ?><meta property="og:title" content="<?php echo $fb_title ?>"/><?php endif; ?>
 	<link rel="stylesheet" href="<?php echo site_url();?>css/reset.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/style.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/960.css" media="screen" />
 	<link rel="stylesheet" href="<?php echo site_url();?>css/jquery.css" media="screen" />
-	<link rel="stylesheet" href="<?php echo site_url();?>css/skin.css" media="screen" />
+	<link rel="stylesheet" href="<?php echo site_url();?>css/jquery-ui-1.8.custom.css" media="screen" />
+	<link rel="stylesheet" href="<?php echo site_url();?>css/structure.css" media="screen" />
 	
 	<script src="<?php echo site_url(); ?>js/jquery.js" type="text/javascript"></script>
 	<script src="<?php echo site_url(); ?>js/jquery-ui.js" type="text/javascript"></script>
 	<script src="<?php echo site_url(); ?>js/jquery.juitter.js" type="text/javascript"></script>
+	<script src="<?php echo site_url(); ?>js/jquery.oembed.min.js" type="text/javascript"></script>
+	<script src="<?php echo site_url(); ?>js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+	<script src="<?php echo site_url(); ?>js/jquery.timer.js" type="text/javascript"></script>
+	<script src="<?php echo site_url(); ?>js/doc-load.js" type="text/javascript"></script>
+	
 	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 	
@@ -67,7 +73,9 @@
 
 <?php 
 	$this->load->view('header');
+	echo '<div id="page">';
 	$this->load->view($content);
+	echo '</div>';
 	$this->load->view('footer'); 
 ?>
 	

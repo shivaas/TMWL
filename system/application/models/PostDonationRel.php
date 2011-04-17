@@ -12,7 +12,12 @@
  */
 class PostDonationRel extends BasePostDonationRel
 {
-	public static function get_by_post_id($post_id){
-		
+	public static function get_by_post_id($post_id, $hydrate = Doctrine_core::HYDRATE_ARRAY){
+		$q = Doctrine_Query::CREATE()
+			->select('pdr.*, d.*')
+			->from('PostDonationRel pdr, pdr.Donations d')
+			->where('pdr.post_id = ?', $post_id);
+			
+		return $q->execute(array(), $hydrate);
 	}
 }

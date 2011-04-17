@@ -12,12 +12,12 @@
  */
 class Posts extends BasePosts
 {
-	public static function get_post_by_id($id){
+	public static function get_post_by_id($id, $hydrate = Doctrine_core::HYDRATE_ARRAY){
 		$q = Doctrine_Query::CREATE()
 			->select('p.*')
 			->from('Posts p')
 			->where('p.post_id = ?', $id)
-			->fetchOne();
+			->fetchOne(array(), $hydrate);
 		
 		return $q;
 	}
