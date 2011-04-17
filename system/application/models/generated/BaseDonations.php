@@ -11,6 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('Donations', 'default');
  * @property float $donation_amount
  * @property string $type
  * @property timestamp $donation_date
+ * @property string $meta_info
  * @property Doctrine_Collection $PostDonationRel
  * 
  * @package    ##PACKAGE##
@@ -54,6 +55,15 @@ abstract class BaseDonations extends Doctrine_Record
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('meta_info', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
              'autoincrement' => false,
              ));
     }

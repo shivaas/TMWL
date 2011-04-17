@@ -14,8 +14,8 @@ class Posts extends BasePosts
 {
 	public static function get_post_by_id($id, $hydrate = Doctrine_core::HYDRATE_ARRAY){
 		$q = Doctrine_Query::CREATE()
-			->select('p.*')
-			->from('Posts p')
+			->select('p.*, pm.*')
+			->from('Posts p, p.PostMedia pm')
 			->where('p.post_id = ?', $id)
 			->fetchOne(array(), $hydrate);
 		

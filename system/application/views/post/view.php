@@ -180,7 +180,7 @@ var validateContactForm = function(){
 						<ul id="heartspace-photos" class="heartspace-visuals jcarousel-skin-ie7">
 							<?php foreach($media['images'] as $photo) : ?>
 	
-								<li><a href="<?= $photo['url']; ?>" class="oembed"></a></li>
+								<li><a href="<?= $photo['media_url']; ?>" class="oembed"></a></li>
 	
 							<?php endforeach; ?>
 						</ul>
@@ -189,10 +189,10 @@ var validateContactForm = function(){
 				<?php if(count($media['videos']) >0):?>	
 					<div id="tab-videos">
 						<ul id="heartspace-videos" class="heartspace-visuals">
-							<?php $findme   = '=';						$findma   = '&';										$pose = strpos($videos[0], $findme);								$posa = strpos($videos[0], $findma);							 if ($posa===false) { $posa = strlen($videos[0]); }						$rest = substr($videos[0], $pose+1, $posa);?>						
+							<?php //$findme   = '=';						$findma   = '&';										$pose = strpos($videos[0]['media_url'], $findme);								$posa = strpos($videos[0], $findma);							 if ($posa===false) { $posa = strlen($videos[0]); }						$rest = substr($videos[0], $pose+1, $posa);?>						
 							<li>
 								<br/>
-								<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/<?= $rest; ?>&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/<?= $rest; ?>&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+								<object width="425" height="344"><param name="movie" value="<?php echo $media['videos'][0]['media_url']; ?>"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<?php echo $media['videos'][0]['media_url']; ?>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
 							</li>
 						</ul>
 						<div class="clear">&nbsp;</div>
@@ -283,9 +283,12 @@ var validateContactForm = function(){
 		</div>
 		<div id="right-col" class="column">
 			<img src="<?php echo base_url(); ?>images/in-her-honor-title-bar.jpg" />
-			<?php foreach($donations as $d):?>
-			<p class="donationName">Sanjay Patel<span class="donationAmount">$25</span></p>
-			<img src="<?php echo base_url(); ?>images/dotted-line-in-her-honour.jpg">
+			<?php foreach($donations as $d):
+					$meta_info = json_decode($d['Donations']['meta_info'], true);
+			?>
+				<p class="donationName"><?php echo $meta_info['donor_name'];?><span class="donationAmount">$<?php echo $d['Donations']['donation_amount'];?></span></p>
+				<img src="<?php echo base_url(); ?>images/dotted-line-in-her-honour.jpg">
+			<?php endforeach;?>
 			<br>
 			<br>
 			<a

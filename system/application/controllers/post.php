@@ -120,7 +120,7 @@ class Post extends Controller {
 		}
 		
 		$post = Posts::get_post_by_id($post_id);
-		
+//		print_r($post);
 		/*
 		$post = array(
 				'post_id' => 1,
@@ -133,9 +133,18 @@ class Post extends Controller {
 		// get post media and organize them
 		$media = array('images' => array(), 'videos' => array());
 		
+		foreach($post['PostMedia'] as $pm){
+			if($pm['media_type'] == 'image')
+				$media['images'][] = $pm;
+			if($pm['media_type'] == 'video')
+				$media['videos'][] = $pm;
+		}
+		
+//		print_r($media);
+		
 		// get post donations
 		$donations = PostDonationRel::get_by_post_id($post['post_id']);
-		print_r($donations);
+//		print_r($donations);
 		$total_donation = 0;
 		foreach($donations as $d){
 			$total_donation += $d['Donations']['donation_amount'];
