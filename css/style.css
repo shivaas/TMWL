@@ -1,17 +1,65 @@
 body { background: url(../images/bg.gif) }
-#heartspace { height: 469px; background: url(../images/heartspace.gif) no-repeat; } 
-#siteheader { height: 128px; background: url(../images/header.gif) no-repeat; }
+#siteheader { height: 128px; background: url(../images/tmwl_header.gif) no-repeat; position: relative; }
+  #sitelogo { height: 104px; width: 190px; background:url(../images/TMWL-logo.png) no-repeat; position: absolute; top:5px; left:20px;  }
+  #sharebutton { background: url(../images/Show-mama-button.png); width: 168px; height: 89px; border: 0px; text-indent: -6000px; position: absolute; top: 40px; right: 10px; }
+  #sharebutton:hover { background: url(../images/Show-mama-button-hover.png); width: 168px; height: 89px; border: 0px; }
 
-#tmwlmamas { margin-left: 45px; margin-top: 175px; }
+#tmwlmamas { margin-left: 45px; margin-top: 135px; }
+  #mama1 { background: url(../images/m/mama_lucy.png) no-repeat; width: 183px; height: 72px; }
+  #mama1:hover { background: url(../images/m/mama_lucy_h.png) no-repeat; width: 183px; height: 72px; }
+  
+  #mama2 { background: url(../images/m/maggie_doyne.png) no-repeat; width: 183px; height: 72px; }
+  #mama2:hover { background: url(../images/m/maggie_doyne_h.png) no-repeat; width: 183px; height: 72px; }
+  
+  #mama3 { background: url(../images/m/suraya_pakzad.png) no-repeat; width: 183px; height: 72px; }
+  #mama3:hover { background: url(../images/m/suraya_pakzad_h.png) no-repeat; width: 183px; height: 72px; }
+  
+  #mama4 { background: url(../images/m/renu_shah_bagaria.png) no-repeat; width: 183px; height: 72px; }
+  #mama4:hover { background: url(../images/m/suraya_pakzad_h.png) no-repeat; width: 183px; height: 72px; }
 
-#tmwl { background: #ffffff; padding-top: 20px; padding-bottom: 20px; }
+  #tmwl { background: #ffffff; padding-top: 20px; padding-bottom: 20px; }
 
-.instructions .wrapper, .twitter .wrapper { width: 438px; margin-top: -5px; margin-bottom: 30px; padding: 10px; border: 1px solid #ddcee5; }
+#heartspace { height: 469px; background: url(../images/heartspace.gif) no-repeat; position: relative; } 
+  #heartspacesearch { position: absolute; top: 0px; left: 220px; }
+
+#info { margin-bottom: 10px; border-bottom: 1px dashed #ed2044; }
+  #info li { margin-bottom: 10px; }
+  .moreinfo { background: url(../images/more_info.png) no-repeat; width: 217px; height: 39px; }
+  .moreinfo:hover { background: url(../images/more_info_h.png) no-repeat; width: 217px; height: 39px; }
+  
+  .about_mamas { background: url(../images/about_the_mamas.png) no-repeat; width: 217px; height: 39px; }
+  .about_mamas:hover { background: url(../images/about_the_mamas_h.png) no-repeat; width: 217px; height: 39px; }
+  
+  .epic_change { background: url(../images/about_epic_change.png) no-repeat; width: 217px; height: 39px; }
+  .epic_change:hover { background: url(../images/about_epic_change_h.png) no-repeat; width: 217px; height: 39px; }
+  
+#twibbon { border-bottom: 1px dashed #ed2044; padding-bottom: 10px; font-size: 12px; font-weight: bold; line-height: 1.6; }
+  #twibbon img { float: left; margin-right: 10px; }
+  #twibbon p { width: 120px; float: right; }
+  
+#tmwlsocmed { font-size: 12px; font-weight: bold;  }
+  #tmwlsocmed li { height: 30px; width: 160px; padding-left: 60px; padding-top: 10px; border-bottom: 1px dashed #ed2044; }
+  .follow { background: url(../images/tinytwitter.png) no-repeat; }
+  .like { background: url(../images/tinyfb.png) no-repeat; }
+  .subscribe { background: url(../images/tinyrss.png) no-repeat; }
+  .emails { background: url(../images/tinyemail.png) no-repeat; }
+
+
+.instructions .wrapper, .twitter .wrapper { width: 438px; margin-bottom: 30px; padding: 10px; border: 1px solid #ddcee5; }
+#main h2 { height: 39px; }
+.instructions h2 { background: url(../images/instructions.gif) no-repeat; text-indent: -3000px; }
+.twitter h2 { background: url(../images/twitter.gif) no-repeat; text-indent: -3000px; }
+.blog h2 { background: url(../images/blog.gif) no-repeat; text-indent: -3000px; }
+.partners h2 { background: url(../images/partners.gif) no-repeat; text-indent: -3000px; }
+.facebook h2 { background: url(../images/facebook.gif) no-repeat; text-indent: -3000px; }
+.team h2 { background: url(../images/team.gif) no-repeat; text-indent: -3000px; }
 
 .facebook .fbplugin, .team ul, .blog ul, .partners ul { width: 198px; padding: 10px; margin-bottom: 30px; }
 .facebook .fbplugin {border: 1px solid #ddcee5; }
 
 /* add hovers to mama thumbs */
+
+#tmwl { font-family: Helvetica, Arial, Verdana, sans-serif; }
 
 /* Twitter feed styles */
 
