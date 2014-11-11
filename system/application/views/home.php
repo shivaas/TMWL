@@ -67,41 +67,63 @@ var updateChars = function(targetDiv, max){
 	<!--mainheartspace-->
 	
 	<div id="sideheartspace" class="grid_3">
+		<ul id="tmwlprogress">
+			<li>319</li>
+			<li>$16,393</li>
+		</ul>
 		<ul id="tmwlmamas">
-			<li><a href="#"><img src="<?php echo base_url()?>images/m/mama_lucy.png"></a></li>
-			<li><a href="#"><img src="<?php echo base_url()?>images/m/maggie_doyne.png"></a></li>
-			<li><a href="#"><img src="<?php echo base_url()?>images/m/suraya_pakzad.png"></a></li>
-			<li><a href="#"><img src="<?php echo base_url()?>images/m/renu_shah_bagaria.png"></a></li>
+			<li id="mama1"></li>
+			<li id="mama2"></li>
+			<li id="mama3"></li>
+			<li id="mama4"></li>
 		</ul>
 	</div>
 	<!--sideheartspace-->
 	
-	<div id="heartspacesearch" class="mamasearch"></div>
+	<div id="heartspacesearch" class="mamasearch">
+		<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/search-for-a-mama.png" id="heartspace-search-text" /> 
+	<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/Search-button.png"  id="heartspace-search" /> 
+	<div id="heartspace-search-form"> 
+		<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/enter-mamas-name.jpg" /><br /><br /> 
+		<form id="heartspace-search-query"> 
+		<input type="text" name="heartspace-input" id="heartspace-input" /> 
+		<img src="http://www.tomamawithlove.org/wp-content/themes/2mamawithlove/assets/Search-button.png" id="heartspace-query" /> 
+		</form> 
+		<div id="heartspace-search-results"></div> 
+	</div>
+	</div>
 	<!--heartspacesearch--> 
 	<br class="clear" />
 </div>
 <!--heartspace-->
 
-<div id="tmwl"
-	class="container_16">
+<div id="tmwl" class="container_16">
 <div id="sidebar1" class="grid_4">
 <ul id="info">
-	<li class="moreinfo">
-		<a href="#"><img src="<?php echo base_url();?>images/more_info.png" alt="more info" /></a>
-	</li>
-	<li class="about_mamas">
-		<a href="#"><img src="<?php echo base_url();?>images/about_the_mamas.png" alt="about the mamas" /></a>
-	</li>
-	<li class="epic_change">
-		<a href="#"><img src="<?php echo base_url();?>images/about_epic_change.png" alt="about epic change" /></a>
-	</li>
+	<li class="moreinfo"></li>
+	<li class="about_mamas"></li>
+	<li class="epic_change"></li>
 </ul>
+
+<div id="twibbon">
+	<img src="<?php echo base_url();?>images/twibbon.png">
+	<p>Add a Twibbon to your Twitter or Facebook picture!</p>
+	<br class="clear" />
+</div><!--twibbon-->
+
+<ul id="tmwlsocmed">
+  <li class="follow">follow us on twitter</li>
+  <li class="like">like EpicChange</li>
+  <li class="subscribe">subscribe to our blog</li>
+  <li class="emails">get our emails</li>
+</ul>
+
 </div>
 <!--sidebar1-->
 
 <div id="main" class="grid_8">
 	<div class="instructions">
-		<h2><img src="<?php echo base_url();?>images/instructions.gif" alt="Instructions" /></h2>
+		<h2>instructions</h2>
 		<div class="wrapper">
 		<ul class="left">
 			<li>1. Create a heartspace for a mom you love by giving $20 or more in her honor.Click here to start </li>
